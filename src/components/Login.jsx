@@ -61,7 +61,7 @@ const Login = ({ onLogin })=>{
           <section class="login-form-wrap">
             <h4>Welcome</h4>
             {email}
-            <p>The Memo saved!</p>
+            <p>The Nota saved!</p>
           </section>
         )}
 
