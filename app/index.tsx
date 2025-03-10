@@ -1,14 +1,15 @@
-// app/index.tsx - Home screen with notes list and input
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef  } from 'react';
 import { View, Text, TextInput, Button, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import dayjs from 'dayjs';
+import { Swipeable } from 'react-native-gesture-handler'; // Import Swipeable
 
 import styles from '@/config/styles';
 
 export default function HomeScreen(): JSX.Element {
     const [noteText, setNoteText] = useState<string>('');
     const [notes, setNotes] = useState<string[]>([]);
+    const swipeableRefs = useRef<Map<number, Swipeable>>(new Map()); 
 
     useEffect(() => {
         loadNotes();
@@ -31,15 +32,46 @@ export default function HomeScreen(): JSX.Element {
         setNoteText('');
     };
 
-    const renderNote = ({ item }: { item: string }) => {
+    const deleteNote = async (index: number): Promise<void> => {
+        // Close the Swipeable before deleting
+        swipeableRefs.current.get(index)?.close(); // Close the Swipeable
+        const updatedNotes = notes.filter((_, i) => i !== index);
+        setNotes(updatedNotes);
+        await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
+    };
+
+
+    const renderNote = ({ item, index }: { item: string; index: number }) => {
         const [timestamp, ...rest] = item.split('\n');
         const content = rest.join('\n').trim();
 
+        const renderRightActions = () => {
+            return (
+                <TouchableOpacity
+                    style={styles.deleteButton}
+                    onPress={() => deleteNote(index)}
+                >
+                    <Text style={styles.deleteButtonText}>Delete</Text>
+                </TouchableOpacity>
+            );
+        };
+
         return (
-            <View style={styles.noteCard}>
-                <Text style={styles.noteTimestamp}>{timestamp}</Text>
-                <Text style={styles.noteContent}>{content}</Text>
-            </View>
+            <Swipeable
+                ref={(ref) => {
+                    if (ref) {
+                        swipeableRefs.current.set(index, ref); // Store the Swipeable ref
+                    } else {
+                        swipeableRefs.current.delete(index); // Remove the ref if Swipeable is unmounted
+                    }
+                }}
+                renderRightActions={renderRightActions}
+            >
+                <View style={styles.noteCard}>
+                    <Text style={styles.noteTimestamp}>{timestamp}</Text>
+                    <Text style={styles.noteContent}>{content}</Text>
+                </View>
+            </Swipeable>
         );
     };
 
