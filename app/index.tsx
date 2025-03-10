@@ -104,7 +104,7 @@ export default function HomeScreen(): JSX.Element {
                     multiline
                     value={noteText}
                     onChangeText={handleInputChange} // Use the custom handler
-                    placeholder="Type your note here..."
+                    placeholder="Type your note here. Swipe to delete."
                     maxLength={150} // Optional: Set a character limit
                     numberOfLines={3} // Restrict visible lines to 3
                     blurOnSubmit={true} // Prevent new lines on "Enter"
