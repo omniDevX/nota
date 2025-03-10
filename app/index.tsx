@@ -1,15 +1,16 @@
-import React, { useEffect, useState, useRef  } from 'react';
-import { View, Text, TextInput, Button, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { View, Text, TextInput, FlatList, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import dayjs from 'dayjs';
-import { Swipeable } from 'react-native-gesture-handler'; // Import Swipeable
+import { Swipeable } from 'react-native-gesture-handler';
 
 import styles from '@/config/styles';
 
 export default function HomeScreen(): JSX.Element {
     const [noteText, setNoteText] = useState<string>('');
     const [notes, setNotes] = useState<string[]>([]);
-    const swipeableRefs = useRef<Map<number, Swipeable>>(new Map()); 
+    const [listKey, setListKey] = useState<number>(0); // Add a key for FlatList
+    const swipeableRefs = useRef<Map<number, Swipeable>>(new Map());
 
     useEffect(() => {
         loadNotes();
@@ -33,13 +34,20 @@ export default function HomeScreen(): JSX.Element {
     };
 
     const deleteNote = async (index: number): Promise<void> => {
-        // Close the Swipeable before deleting
-        swipeableRefs.current.get(index)?.close(); // Close the Swipeable
+        // Close the Swipeable immediately
+        swipeableRefs.current.get(index)?.close();
+
+        // Wait for the swipeable to close (optional, but ensures smooth animation)
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
+        // Update the list state
         const updatedNotes = notes.filter((_, i) => i !== index);
         setNotes(updatedNotes);
         await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
-    };
 
+        // Force FlatList to re-render by updating the key
+        setListKey((prevKey) => prevKey + 1);
+    };
 
     const renderNote = ({ item, index }: { item: string; index: number }) => {
         const [timestamp, ...rest] = item.split('\n');
@@ -78,6 +86,7 @@ export default function HomeScreen(): JSX.Element {
     return (
         <View style={styles.container}>
             <FlatList
+                key={listKey} // Force re-render by changing the key
                 data={notes}
                 keyExtractor={(_, index) => index.toString()}
                 renderItem={renderNote}
