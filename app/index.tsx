@@ -12,10 +12,13 @@ export default function HomeScreen(): JSX.Element {
     const [listKey, setListKey] = useState<number>(0);
     const swipeableRefs = useRef<Map<number, Swipeable>>(new Map());
 
+    // Load saved notes and real-time note on app start
     useEffect(() => {
         loadNotes();
+        loadRealTimeNote();
     }, []);
 
+    // Load saved notes list
     const loadNotes = async (): Promise<void> => {
         const storedNotes = await AsyncStorage.getItem('notes');
         if (storedNotes) {
@@ -23,6 +26,21 @@ export default function HomeScreen(): JSX.Element {
         }
     };
 
+    // Load real-time note from storage
+    const loadRealTimeNote = async (): Promise<void> => {
+        const realTimeNote = await AsyncStorage.getItem('realTimeNote');
+        if (realTimeNote) {
+            setNoteText(realTimeNote);
+        }
+    };
+
+    // Save real-time note as the user types
+    const handleInputChange = async (text: string): Promise<void> => {
+        setNoteText(text);
+        await AsyncStorage.setItem('realTimeNote', text); // Save to AsyncStorage
+    };
+
+    // Save note to the list (same as before)
     const saveNote = async (): Promise<void> => {
         if (!noteText.trim()) return;
 
@@ -31,9 +49,11 @@ export default function HomeScreen(): JSX.Element {
         const updatedNotes = [newNote, ...notes];
         setNotes(updatedNotes);
         await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
-        setNoteText('');
+        setNoteText(''); // Clear the input
+        await AsyncStorage.removeItem('realTimeNote'); // Clear the real-time note
     };
 
+    // Delete note from the list
     const deleteNote = async (index: number): Promise<void> => {
         swipeableRefs.current.get(index)?.close();
         await new Promise((resolve) => setTimeout(resolve, 100));
@@ -43,18 +63,7 @@ export default function HomeScreen(): JSX.Element {
         setListKey((prevKey) => prevKey + 1);
     };
 
-    const handleInputChange = (text: string): void => {
-        const lines = text.split('\n');
-
-        // If there are more than 3 lines, take only the first 3 lines
-        if (lines.length > 3) {
-            const truncatedText = lines.slice(0, 3).join('\n');
-            setNoteText(truncatedText);
-        } else {
-            setNoteText(text);
-        }
-    };
-
+    // Render each note item
     const renderNote = ({ item, index }: { item: string; index: number }) => {
         const [timestamp, ...rest] = item.split('\n');
         const content = rest.join('\n').trim();
@@ -103,9 +112,9 @@ export default function HomeScreen(): JSX.Element {
                     style={styles.input}
                     multiline
                     value={noteText}
-                    onChangeText={handleInputChange} // Use the custom handler
+                    onChangeText={handleInputChange} // Save in real-time as the user types
                     placeholder="Type your note here. Swipe to delete."
-                    maxLength={150} // Optional: Set a character limit
+                    maxLength={300} // Optional: Set a character limit
                     numberOfLines={3} // Restrict visible lines to 3
                     blurOnSubmit={true} // Prevent new lines on "Enter"
                 />

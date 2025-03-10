@@ -54,6 +54,8 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     shadowOffset: { width: 0, height: 2 },
     elevation: 1,
+    justifyContent: "center", // Add this to center content vertically
+    minHeight: 80, // Ensure the card has enough height
   },
   noteTimestamp: {
     fontSize: 12,
@@ -70,8 +72,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 60,
     height: 60,
-    alignSelf: "center",
     borderRadius: 10,
+    alignSelf: "center",
   },
   deleteButtonText: {
     color: "white",
