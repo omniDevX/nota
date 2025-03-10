@@ -1,13 +1,20 @@
 {
-  "files.exclude": {
-    "package-lock.json": true,
-    "package.json": true,
-    ".gitignore": true,
-    "vite.config.js": true,
-    "node_modules": true,
-    "LICENSE": true,
-    ".eslintrc.cjs": true,
-    "desktop.ini": true,
-    "README.md":false,
-  }
+    "files.exclude": {
+        "__init__.py": true,
+        ".gitignore": true,
+        ".github": true,
+        ".vscode": true,
+		".angular":true,
+		"e2e":true,
+        "LICENSE": true,
+        ".eslintrc.cjs": true,
+        "desktop.ini": true,
+    },
+    "workbench.tree.indent": 28,
+    "git.postCommitCommand": "push",
+	"editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+	
 }
+

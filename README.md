@@ -1,53 +1,63 @@
-### Nota: Focus on essential.
-> - Less clutter, more clarity.
-> - AI Assistant Job Flow Automator. 
-> - The minimalist note-taking app that lets you focus on what's important.
+# Welcome to Asian Beauty 👋
 
-<div align="center">
+Asian Beauty is a [collection](https://aidres.com) of Asian beautiful women including Japanese, Korean, Chinese, Viatnamies, Philipines, and more.
 
-<a href='https://www.hypech.com'>
-<img src="./images/nota.png" alt="AI-Powered Cover Letter" height=400></img></a>
-<br></br>
+## Get started
 
-[![Node Version](https://img.shields.io/badge/nodejs-18,_20-green.svg?logo=node.js&style=flat)](https://nodejs.org)
-[![MongoDB Version](https://img.shields.io/badge/mongodb-4.2,_4.4,_5,_6,_7-green.svg?logo=mongodb&style=flat)](https://www.mongodb.com)
-[![Postgres Version](https://img.shields.io/badge/postgresql-13,_14,_15,_16-green.svg?logo=postgresql&style=flat)](https://www.postgresql.org)
-[![npm latest version](https://img.shields.io/npm/v/parse-server/latest.svg)](https://www.npmjs.com/package/parse-server)
-[![GitHub Release](https://img.shields.io/github/v/release/aiXpertLab/AI-Powered-Automatically-Customize-Cover-Letter)](https://github.com/aiXpertLab/AI-Powered-Automatically-Customize-Cover-Letter/releases)
- 
-[![Official Website](<https://img.shields.io/badge/-Visit%20the%20Official%20Website%20%E2%86%92-rgb(21,204,116)?style=for-the-badge>)](https://hypech.com)
+1. Download the demo published at: [googleplay](https://play.google.com/store/apps/details?id=com.aixpertlab.asianbeautyycc)
+  
+Top 10 Stunning Women Categories (十大绝色女神榜)
+不朽女神 (Bùxiǔ nǚshén) – Eternal Goddesses (Most Iconic Supermodels)
+银幕尤物 (Yínmù yóuwù) – Silver Screen Enchantresses (Hottest Hollywood Actresses)
+新世代缪斯 (Xīn shìdài miùsī) – New-Gen Muses (Rising Instagram Models)
+烈焰海滩 (Lièyàn hǎitān) – Flaming Shores (Bikini Bombshells)
+丝绸女王 (Sīchóu nǚwáng) – Silk Empress (Lingerie Queens)
+性感战士 (Xìnggǎn zhànshì) – Sensual Warriors (Fitness Goddesses)
+暗夜玫瑰 (Ànyè méiguī) – Midnight Rose (Tattooed Beauties)
+异域芳华 (Yìyù fānghuá) – Exotic Grace (Exotic & International)
+天生尤物 (Tiānshēng yóuwù) – Naturally Seductive (Curvy & Confident)
+红毯皇后 (Hóngtǎn huánghòu) – Red Carpet Queen (Glam & Red Carpet Stars)
 
-[![jhc linkedin](https://img.shields.io/badge/Linkedin-aiXpert-5087B2.svg?style=flat&logo=Linkedin)](https://www.linkedin.com/in/aiXpert)
-[![jhc twitter](https://img.shields.io/badge/Twitter-@aiXpertLab-00aced.svg?style=flat&logo=twitter)](https://twitter.com/aiXpertLab)
-[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCNcmE7uHam8jSLSa8CvMgQQ)](https://www.youtube.com/@aiXpertLab)
-[![jhc fb](https://img.shields.io/badge/Facebook-aiXpertLab-5087B2.svg?style=flat&logo=facebook)](https://www.facebook.com/aiXpertLab/)
-[![jhc gmail](https://img.shields.io/badge/Gmail-aiXpertLab@gmail.com-5087B2.svg?style=flat&logo=gmail)](https://gmail.com)
+传奇超模 (Chuánqí chāomó) – Most Iconic Supermodels
+性感好莱坞 (Xìnggǎn Hǎoláiwù) – Hottest Hollywood Actresses
+新晋网络红人 (Xīnjìn wǎngluò hóngrén) – Rising Instagram Models
+比基尼炸弹 (Bǐjīní zhàdàn) – Bikini Bombshells
+内衣女王 (Nèiyī nǚwáng) – Lingerie Queens
+健身女神 (Jiànshēn nǚshén) – Fitness Goddesses
+性感纹身 (Xìnggǎn wénshēn) – Tattooed Beauties
+异国风情 (Yìguó fēngqíng) – Exotic & International
+曲线女王 (Qūxiàn nǚwáng) – Curvy & Confident
+红毯女神 (Hóngtǎn nǚshén) – Glam & Red Carpet Stars
 
-</div> 
-<div>
-    Nota: Notes that keep it simple.
-    Nota: Capture thoughts, effortlessly.
-    Nota: The minimalist way to take notes.
-    Nota - Uncluttered note-taking for clear thinking.
-    Nota - Write down what matters, simply.
-    Nota - The lightweight way to capture daily ideas.
-    Nota: Keep track of what matters, every day.
-    Nota: Your daily record, always at hand.
-    Nota: Never forget a thing.
-    Nota - Build a record of your daily tasks and ideas.
-    Nota - Your daily journal, made simple.
-    Nota - Archive your notes for future reference, effortlessly.
-    Nota: Simply capture and remember what matters.
-    Nota: Minimalist notes for your daily record.
-    Nota: Write, remember, forget nothing.
-    Nota - Easily jot down daily notes and keep a record.
-    Nota - The minimalist note-taking app for daily tasks and journaling.
-    Nota - Capture quick notes and build a simple record of your day.
-    Nota: Less clutter, more clarity.
-    Nota: Focus on what's essential.
-    Nota: Write. Remember. Done.
-    Nota - The minimalist note-taking app that lets you focus on what's important.
-    Nota - Declutter your mind, one note at a time.
-    Nota - Simple, powerful note-taking for a productive day.
 
-</div> 
+魅惑写真 (Mèihuò xiězhēn) – Enchanting Glamour
+海滩女神 (Hǎitān nǚshén) – Beach Goddess
+蕾丝密语 (Léisi mìyǔ) – Lace Whisper (Lingerie & Boudoir)
+都市风情 (Dūshì fēngqíng) – Urban Elegance (Street & Casual)
+力量之美 (Lìliàng zhī měi) – The Beauty of Strength (Fitness & Athletic)
+神秘幻想 (Shénmì huànxiǎng) – Mystical Fantasy (Exotic & Fantasy)
+
+魅力写真 (Mèilì xiězhēn) – Glamour Shots
+比基尼女神 (Bǐjīní nǚshén) – Bikini & Swimwear
+内衣与闺房 (Nèiyī yǔ guīfáng) – Lingerie & Boudoir
+街拍潮流 (Jiēpāi cháoliú) – Street & Casual
+健身女神 (Jiànshēn nǚshén) – Fitness & Athletic
+异域与幻想 (Yìyù yǔ huànxiǎng) – Exotic & Fantasy
+
+精英女王 (Jīngyīng Nǚwáng) – Elite Queen (Powerful women in business)
+霸气女总裁 (Bàqì Nǚ Zǒngcái) – Dominant CEO Goddess (Strong, independent women in leadership)
+智慧女神 (Zhìhuì Nǚshén) – Goddess of Wisdom (Women who exude intelligence and charm)
+职场尤物 (Zhíchǎng Yóuwù) – Workplace Enchantress (Chic, stylish professionals)
+西装杀手 (Xīzhuāng Shāshǒu) – Suit Killer (Women who look stunning in formal attire)
+干练女神 (Gànliàn Nǚshén) – Sharp & Capable Goddess (Confident and professional women)
+
+Sultry Sirens – Bold, intense, and captivating beauty.
+Ethereal Elegance – Dreamy, soft, and angelic portraits.
+Urban Chic – Trendy, stylish, and modern fashion photography.
+Golden Hour Glow – Warm, natural, and outdoor beauty in sunlight.
+Celestial Muses – Fantasy, mystical, and otherworldly aesthetics.
+Vintage Vixens – Classic Hollywood glam, retro, and nostalgic vibes.
+Femme Fatale – Strong, confident, and seductive poses.
+Bohemian Bliss – Free-spirited, artistic, and nature-infused beauty.
+Velvet Noir – Moody, dramatic, and black-and-white elegance.
+Sporty & Fierce – Athletic, active, and empowered looks.
