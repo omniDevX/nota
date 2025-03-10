@@ -9,7 +9,7 @@ import styles from '@/config/styles';
 export default function HomeScreen(): JSX.Element {
     const [noteText, setNoteText] = useState<string>('');
     const [notes, setNotes] = useState<string[]>([]);
-    const [listKey, setListKey] = useState<number>(0); // Add a key for FlatList
+    const [listKey, setListKey] = useState<number>(0);
     const swipeableRefs = useRef<Map<number, Swipeable>>(new Map());
 
     useEffect(() => {
@@ -25,8 +25,9 @@ export default function HomeScreen(): JSX.Element {
 
     const saveNote = async (): Promise<void> => {
         if (!noteText.trim()) return;
+
         const timestamp = dayjs().format('MMM D  h:mma');
-        const newNote = `${timestamp}\n ${noteText.trim()}`;
+        const newNote = `${timestamp}\n${noteText.trim()}`;
         const updatedNotes = [newNote, ...notes];
         setNotes(updatedNotes);
         await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
@@ -34,19 +35,24 @@ export default function HomeScreen(): JSX.Element {
     };
 
     const deleteNote = async (index: number): Promise<void> => {
-        // Close the Swipeable immediately
         swipeableRefs.current.get(index)?.close();
-
-        // Wait for the swipeable to close (optional, but ensures smooth animation)
         await new Promise((resolve) => setTimeout(resolve, 100));
-
-        // Update the list state
         const updatedNotes = notes.filter((_, i) => i !== index);
         setNotes(updatedNotes);
         await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
-
-        // Force FlatList to re-render by updating the key
         setListKey((prevKey) => prevKey + 1);
+    };
+
+    const handleInputChange = (text: string): void => {
+        const lines = text.split('\n');
+
+        // If there are more than 3 lines, take only the first 3 lines
+        if (lines.length > 3) {
+            const truncatedText = lines.slice(0, 3).join('\n');
+            setNoteText(truncatedText);
+        } else {
+            setNoteText(text);
+        }
     };
 
     const renderNote = ({ item, index }: { item: string; index: number }) => {
@@ -68,9 +74,9 @@ export default function HomeScreen(): JSX.Element {
             <Swipeable
                 ref={(ref) => {
                     if (ref) {
-                        swipeableRefs.current.set(index, ref); // Store the Swipeable ref
+                        swipeableRefs.current.set(index, ref);
                     } else {
-                        swipeableRefs.current.delete(index); // Remove the ref if Swipeable is unmounted
+                        swipeableRefs.current.delete(index);
                     }
                 }}
                 renderRightActions={renderRightActions}
@@ -86,7 +92,7 @@ export default function HomeScreen(): JSX.Element {
     return (
         <View style={styles.container}>
             <FlatList
-                key={listKey} // Force re-render by changing the key
+                key={listKey}
                 data={notes}
                 keyExtractor={(_, index) => index.toString()}
                 renderItem={renderNote}
@@ -97,8 +103,11 @@ export default function HomeScreen(): JSX.Element {
                     style={styles.input}
                     multiline
                     value={noteText}
-                    onChangeText={setNoteText}
+                    onChangeText={handleInputChange} // Use the custom handler
                     placeholder="Type your note here..."
+                    maxLength={150} // Optional: Set a character limit
+                    numberOfLines={3} // Restrict visible lines to 3
+                    blurOnSubmit={true} // Prevent new lines on "Enter"
                 />
                 <TouchableOpacity style={styles.button} onPress={saveNote}>
                     <Text style={styles.buttonText}>Save</Text>
