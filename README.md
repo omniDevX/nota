@@ -24,7 +24,6 @@
 [![jhc gmail](https://img.shields.io/badge/Gmail-aiXpertLab@gmail.com-5087B2.svg?style=flat&logo=gmail)](https://gmail.com)
 
 </div> 
-<div>
         Nota: Notes that keep it simple.
         Nota: Capture thoughts, effortlessly.
         Nota: The minimalist way to take notes.
@@ -50,4 +49,3 @@
         Nota - Declutter your mind, one note at a time.
         Nota - Simple, powerful note-taking for a productive day.
 
-</div> 
