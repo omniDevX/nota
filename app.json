@@ -16,7 +16,7 @@
                 "foregroundImage": "./assets/images/adaptive-icon.png",
                 "backgroundColor": "#ffffff"
             },
-            "package": "com.aixpertlab.asianbeautyycc"
+            "package": "com.aixpertlab.nota"
         },
         "web": {
             "bundler": "metro",
@@ -41,9 +41,6 @@
         "extra": {
             "router": {
                 "origin": false
-            },
-            "eas": {
-                "projectId": "8efd519e-2596-49a8-be7a-958bbe8b413a"
             }
         },
         "owner": "aixpertlab"
