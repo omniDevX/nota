@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 10,
     alignSelf: "center",
+    marginLeft: 8,
   },
   deleteButtonText: {
     color: "white",
