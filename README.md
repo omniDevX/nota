@@ -6,7 +6,7 @@
 <div align="center">
 
 <a href='https://www.hypech.com'>
-<img src="./images/nota.png" alt="AI-Powered Cover Letter" height=400></img></a>
+<img src="./assets/images/1024.png" alt="Zen Nota" height=400></img></a>
 <br></br>
 
 [![Node Version](https://img.shields.io/badge/nodejs-18,_20-green.svg?logo=node.js&style=flat)](https://nodejs.org)
