@@ -1,8 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { View, Text, TextInput, FlatList, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import dayjs from 'dayjs';
+import React, { JSX, useEffect, useRef, useState } from 'react';
+import { FlatList, Keyboard, Platform, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
 import { Swipeable } from 'react-native-gesture-handler';
+
+
 
 import styles from '@/config/styles';
 
@@ -11,6 +14,7 @@ export default function HomeScreen(): JSX.Element {
     const [notes, setNotes] = useState<string[]>([]);
     const [listKey, setListKey] = useState<number>(0);
     const swipeableRefs = useRef<Map<number, Swipeable>>(new Map());
+    const [keyboardHeight, setKeyboardHeight] = useState(0);
 
     // Load saved notes and real-time note on app start
     useEffect(() => {
@@ -63,6 +67,23 @@ export default function HomeScreen(): JSX.Element {
         setListKey((prevKey) => prevKey + 1);
     };
 
+    useEffect(() => {
+        if (Platform.OS !== 'android') return;
+
+        const showSubscription = Keyboard.addListener(
+            'keyboardDidShow',
+            (e) => setKeyboardHeight(e.endCoordinates.height)
+        );
+        const hideSubscription = Keyboard.addListener(
+            'keyboardDidHide',
+            () => setKeyboardHeight(0)
+        );
+
+        return () => {
+            showSubscription.remove();
+            hideSubscription.remove();
+        };
+    }, []);
     // Render each note item
     const renderNote = ({ item, index }: { item: string; index: number }) => {
         const [timestamp, ...rest] = item.split('\n');
@@ -105,18 +126,29 @@ export default function HomeScreen(): JSX.Element {
                 data={notes}
                 keyExtractor={(_, index) => index.toString()}
                 renderItem={renderNote}
-                contentContainerStyle={{ paddingBottom: 100 }}
+                contentContainerStyle={{
+                    paddingBottom: Platform.select({
+                        android: keyboardHeight > 0 ? keyboardHeight + 80 : 20,
+                        default: 20
+                    })
+                }}
             />
-            <View style={styles.inputContainer}>
+            <View style={[
+                styles.inputContainer,
+                Platform.select({
+                    android: { marginBottom: keyboardHeight },
+                    default: {}
+                })
+            ]}>
                 <TextInput
                     style={styles.input}
                     multiline
                     value={noteText}
-                    onChangeText={handleInputChange} // Save in real-time as the user types
+                    onChangeText={handleInputChange}
                     placeholder="Type your note here. Swipe to delete."
-                    maxLength={300} // Optional: Set a character limit
-                    numberOfLines={3} // Restrict visible lines to 3
-                    blurOnSubmit={true} // Prevent new lines on "Enter"
+                    maxLength={300}
+                    numberOfLines={3}
+                    blurOnSubmit={true}
                 />
                 <TouchableOpacity style={styles.button} onPress={saveNote}>
                     <Text style={styles.buttonText}>Save</Text>
@@ -124,4 +156,5 @@ export default function HomeScreen(): JSX.Element {
             </View>
         </View>
     );
+
 }

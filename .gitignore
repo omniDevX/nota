@@ -8,9 +8,9 @@ node_modules/
 dist/
 web-build/
 expo-env.d.ts
-android
 
 # Native
+.kotlin/
 *.orig.*
 *.jks
 *.p8
