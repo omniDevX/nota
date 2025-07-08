@@ -1,43 +1,43 @@
 {
-  "expo": {
-    "name": "nota",
-    "slug": "nota",
-    "version": "2.35.1",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "nota",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/images/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "package": "com.aixpertlab.nota"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
-    "experiments": {
-      "typedRoutes": true
-    },
-    "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "ff8fdce7-8975-4c6a-86ca-daaabac922db"
-      }
-    },
-    "owner": "aixpertlab"
-  }
+    "expo": {
+        "name": "nota",
+        "slug": "nota",
+        "version": "2.35.1",
+        "orientation": "portrait",
+        "icon": "./assets/images/icon.png",
+        "scheme": "nota",
+        "userInterfaceStyle": "automatic",
+        "newArchEnabled": true,
+        "splash": {
+            "image": "./assets/images/splash-icon.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/images/adaptive-icon.png",
+                "backgroundColor": "#ffffff"
+            },
+            "edgeToEdgeEnabled": true,
+            "package": "com.aixpertlab.nota"
+        },
+        "web": {
+            "bundler": "metro",
+            "output": "static",
+            "favicon": "./assets/images/favicon.png"
+        },
+        "experiments": {
+            "typedRoutes": true
+        },
+        "extra": {
+            "router": {},
+            "eas": {
+                "projectId": "ff8fdce7-8975-4c6a-86ca-daaabac922db"
+            }
+        },
+        "owner": "aixpertlab"
+    }
 }
